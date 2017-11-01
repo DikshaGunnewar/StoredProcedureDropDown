@@ -103,6 +103,14 @@ namespace CrudUsingSpMVC5.Controllers
         #endregion
 
         #region--Post Method for Edit --
+        /// <summary>
+        /// Edit method is working
+        /// but when we click edit link
+        /// it will show selected state but not showing selected city
+        /// when we change state then after that it is showing state and city list.
+        /// </summary>
+        /// <param name="customerVM"></param>
+        /// <returns></returns>
         // POST: CustomerVMs/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
