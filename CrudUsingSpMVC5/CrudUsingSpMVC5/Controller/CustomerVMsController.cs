@@ -68,7 +68,7 @@ namespace CrudUsingSpMVC5.Controllers
         #region--Post Method for Create --
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Email,CurrentAddress,State,City")] CustomerVM customerVM)
+        public ActionResult Create([Bind(Include = "Id,Name,Email,CurrentAddress,PermanantAddress,State,City")] CustomerVM customerVM)
         {
             if (ModelState.IsValid)
             {
@@ -106,7 +106,7 @@ namespace CrudUsingSpMVC5.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Email,CurrentAddress,State,City")] CustomerVM customerVM)
+        public ActionResult Edit([Bind(Include = "Id,Name,Email,PermanantAddress,CurrentAddress,State,City")] CustomerVM customerVM)
         {
             if (ModelState.IsValid)
             {
@@ -114,6 +114,7 @@ namespace CrudUsingSpMVC5.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.StateList = db.States;
             return View(customerVM);
         }
 
@@ -162,7 +163,7 @@ namespace CrudUsingSpMVC5.Controllers
             return Json(cities, JsonRequestBehavior.AllowGet);
         }
 
-        #endregion]
+        #endregion
 
         #region--Despose Method--
         protected override void Dispose(bool disposing)
