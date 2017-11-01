@@ -90,11 +90,13 @@ namespace CrudUsingSpMVC5.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+           
             CustomerVM customerVM = db.CustomerVMs.Find(id);
             if (customerVM == null)
             {
                 return HttpNotFound();
             }
+            ViewBag.StateList = db.States;
             return View(customerVM);
         }
 
